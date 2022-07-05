@@ -6,19 +6,16 @@ import {
   useState,
   createContext,
 } from "react";
-import Swal from "sweetalert2";
-import withReactContent from "sweetalert2-react-content";
 import api from "../services/api";
 import {
   IAuthContextData,
   IAuthProviderProps,
 } from "../shared/interfaces/IAuthContext";
+import MySwal from "../services/swal";
 
 export const AuthContext = createContext<IAuthContextData>(
   {} as IAuthContextData
 );
-
-const MySwal = withReactContent(Swal);
 
 export const AuthProvider: React.FC<IAuthProviderProps> = ({ children }) => {
   const [user, setUser] = useState();
